@@ -3,10 +3,10 @@
   <!-- ! Hide app brand if navbar-full -->
   <div class="app-brand demo">
     <a href="{{url('/')}}" class="app-brand-link">
-      <span class="app-brand-logo demo">
-        @include('_partials.macros',["width"=>25,"withbg"=>'#696cff'])
-      </span>
-      <span class="fw-bold ms-4">{{config('variables.templateName')}}</span>
+      <div>
+        <img src="{{ asset('assets/img/logo/escudo.png') }}" alt class="w-px-50">
+      </div>
+      <span class="fw-bold ms-1">{{config('variables.templateName')}}</span>
     </a>
 
     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-autod-block d-xl-none">

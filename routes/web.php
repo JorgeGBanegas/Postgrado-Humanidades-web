@@ -20,9 +20,7 @@ $controller_path = 'App\Http\Controllers';
 
 // layout
 Route::get('/', $controller_path . '\layouts\Container@index')->name('layouts-container');
-Route::get('/Campo1', $controller_path . '\layouts\Fluid@index')->name('layouts-fluid');
-
 
 
 // pages
-Route::get('/pages/account-settings-account', $controller_path . '\pages\AccountSettingsAccount@index')->name('pages-account-settings-account');
+Route::get('/GestionarPrograma/programas', $controller_path . '\ProgramaController@index')->name('pages-programa.blade');
