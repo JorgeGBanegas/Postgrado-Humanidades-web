@@ -1,0 +1,38 @@
+{
+  "menu": [
+    {
+      "url": "/",
+      "name": "Home",
+      "icon": "menu-icon tf-icons bx bx-home-circle",
+      "slug": "dashboard-analytics"
+    },
+    {
+      "url": "/Campo1",
+      "name": "Campo 1",
+      "icon": "menu-icon tf-icons bx bx-layout",
+      "slug": "layouts"
+      
+    },
+    {
+      "menuHeader": "Pages (menu header)"
+    },
+    
+    {
+      "name": "Form Layouts",
+      "icon": "menu-icon tf-icons bx bx-detail",
+      "slug": "form-layouts",
+      "submenu": [
+        {
+          "url": "form/layouts-vertical",
+          "name": "Vertical Form",
+          "slug": "form-layouts-vertical"
+        },
+        {
+          "url": "form/layouts-horizontal",
+          "name": "Horizontal Form",
+          "slug": "form-layouts-horizontal"
+        }
+      ]
+    }
+  ]
+}
