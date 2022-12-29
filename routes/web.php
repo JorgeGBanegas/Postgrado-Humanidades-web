@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PersonaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +25,5 @@ Route::get('/', $controller_path . '\layouts\Container@index')->name('layouts-co
 
 // pages
 Route::get('/GestionarPrograma/programas', $controller_path . '\ProgramaController@index')->name('pages-programa.blade');
+
+Route::resource('personas', PersonaController::class);

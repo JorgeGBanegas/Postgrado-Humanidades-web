@@ -51,7 +51,6 @@ class Persona extends Model
 	];
 
 	protected $dates = [
-		'per_fnac',
 		'per_create',
 		'per_update'
 	];
