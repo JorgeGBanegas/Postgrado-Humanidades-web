@@ -28,8 +28,6 @@ class HorarioPrograma extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'hora_program_hini' => 'time without time zone',
-		'hora_program_hfin' => 'time without time zone',
 		'grup_program' => 'int'
 	];
 

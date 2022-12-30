@@ -34,7 +34,7 @@
           "slug": "form-layouts-vertical"
         },
         {
-          "url": "Registro/inscripcion",
+          "url": "inscripciones",
           "name": "Inscripcion",
           "slug": "form-layouts-horizontal"
         }

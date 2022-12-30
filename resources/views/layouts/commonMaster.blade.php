@@ -17,6 +17,8 @@
   <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.ico') }}" />
 
   <!-- Include Styles -->
+  @livewireStyles
+
   @include('layouts/sections/styles')
 
   <!-- Include Scripts for customizer, helper, analytics, config -->
@@ -34,6 +36,7 @@
 
   <!-- Include Scripts -->
   @include('layouts/sections/scripts')
+  @livewireScripts
 
 </body>
 

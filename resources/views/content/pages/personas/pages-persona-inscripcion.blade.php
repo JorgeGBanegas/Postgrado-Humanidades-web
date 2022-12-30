@@ -6,6 +6,26 @@ $isNavbar = false;
 @section('title', ' Registro - Forms')
 
 @section('content')
+
+
+@if($errors->any())
+<div style="display: flex; justify-content: center;">
+    <div style="position: absolute;" class="bs-toast toast fade show bg-danger " role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <i class='bx bx-bell me-2'></i>
+            <div class="me-auto fw-semibold">Ah ocurrido un error</div>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        @foreach($errors->all() as $error)
+        <div class="toast-body">
+            {{ $error }}
+        </div>
+
+        @endforeach
+    </div>
+</div>
+@endif
+
 <h4 class="fw-bold py-3 mb-4">Formulario de Inscripcion</h4>
 
 <!-- Basic Layout & Basic with Icons -->
@@ -17,29 +37,30 @@ $isNavbar = false;
                 <h5 class="mb-0">Datos de inscripcion</h5> <small class="text-muted float-end"></small>
             </div>
             <div class="card-body">
-                <form action="" method="POST">
+                <form action="{{route('inscripciones.store')}}" method="POST">
                     @csrf
                     <div class="container">
                         <div class="row mb-3">
-                            <div class="col">
+                            <div class="col-10">
                                 <label for="DataListEstudiantes" class="form-label">Buscar Estudiantes Registrados</label>
-                                <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                                <input name="inscripcion_alumno" required class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
                                 <datalist id="datalistOptions">
-                                    <option value="6366404"> Jorge
-                                    <option value="New York">
-                                    <option value="Seattle">
-                                    <option value="Los Angeles">
-                                    <option value="Chicago">
+                                    @foreach($listaEstudiantes as $estudiante)
+                                    <option value="{{ $estudiante->per_ci}}"> {{ $estudiante->per_nom}} {{ $estudiante->per_appm}}
+                                        @endforeach
                                 </datalist>
+                            </div>
+                            <div class="col-2">
+                                <label for="NuevoEstudiantes" class="form-label">Estudiante</label>
+                                <a style="margin-bottom: 25px;" href="{{ route('personas.create')}}" class="btn btn-primary">Nuevo</a>
                             </div>
                         </div>
                     </div>
                     @livewire('select-anidado')
 
-
-                    <div class="row justify-content-end">
-                        <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Registrar</button>
+                    <div class="container">
+                        <div>
+                            <button type="submit" class="btn btn-primary">Inscribir</button>
                         </div>
                     </div>
                 </form>

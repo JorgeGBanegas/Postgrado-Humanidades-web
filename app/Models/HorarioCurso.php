@@ -28,8 +28,6 @@ class HorarioCurso extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'hora_curs_hini' => 'time without time zone',
-		'hora_curs_hfin' => 'time without time zone',
 		'grup_curs' => 'int'
 	];
 

@@ -49,7 +49,7 @@
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-                @foreach($inscritos AS $inscripcion)
+                @foreach($inscritosProg AS $inscripcion)
                 <tr>
                     <td>{{ $inscripcion-> inscrip_program_nro}}</td>
                     <td>{{ $inscripcion-> inscrip_program_fecha}}</td>

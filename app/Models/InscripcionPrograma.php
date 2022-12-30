@@ -53,7 +53,7 @@ class InscripcionPrograma extends Model
 		return $this->belongsTo(Persona::class, 'estudiante');
 	}
 
-	public function programa()
+	public function program()
 	{
 		return $this->belongsTo(Programa::class, 'programa');
 	}
