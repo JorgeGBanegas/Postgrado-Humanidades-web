@@ -30,13 +30,16 @@
 <a style="margin-bottom: 25px;" href="{{ route('inscripciones.create')}}" class="btn btn-primary">Inscribir</a>
 
 <!--- Listado--->
+@livewire('list-inscripciones')
+
+<!--
 <div class="card">
     <div style="align-items: center; display: inline-flex; justify-content: space-between;">
         <h5 class="card-header">Listado de Inscripciones a Programas</h5>
     </div>
 
-    <div class="table-responsive">
-        <table class="table">
+    <div class="table-responsive">    
+    <table class="table">
             <thead>
                 <tr>
                     <th>Nro inscripcion</th>
@@ -49,7 +52,8 @@
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-                @foreach($inscritosProg AS $inscripcion)
+                    
+            @foreach($inscritosProg AS $inscripcion)
                 <tr>
                     <td>{{ $inscripcion-> inscrip_program_nro}}</td>
                     <td>{{ $inscripcion-> inscrip_program_fecha}}</td>
@@ -69,8 +73,10 @@
                     </td>
                 </tr>
                 @endforeach
-            </tbody>
+                
+        </tbody>
         </table>
     </div>
+    ---->
 </div>
 @endsection

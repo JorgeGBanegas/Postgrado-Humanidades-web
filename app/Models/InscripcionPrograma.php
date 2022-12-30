@@ -37,9 +37,7 @@ class InscripcionPrograma extends Model
 		'grupo' => 'int'
 	];
 
-	protected $dates = [
-		'inscrip_program_fecha'
-	];
+	protected $dates = [];
 
 	protected $fillable = [
 		'inscrip_program_fecha',

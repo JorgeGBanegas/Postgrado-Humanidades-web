@@ -35,9 +35,7 @@ class InscripcionCurso extends Model
 		'grupo' => 'int'
 	];
 
-	protected $dates = [
-		'inscrip_curs_fecha'
-	];
+	protected $dates = [];
 
 	protected $fillable = [
 		'inscrip_curs_fecha',
@@ -51,7 +49,7 @@ class InscripcionCurso extends Model
 		return $this->belongsTo(Persona::class, 'estudiante');
 	}
 
-	public function curso()
+	public function curs()
 	{
 		return $this->belongsTo(Curso::class, 'curso');
 	}
