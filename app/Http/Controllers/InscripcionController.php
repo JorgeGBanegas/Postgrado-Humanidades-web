@@ -96,9 +96,23 @@ class InscripcionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($inscripcion)
     {
-        //
+        //return view('content.pages.personas.page-persona-boleta');
+    }
+
+    public function showProgram($id)
+    {
+        $inscripcion = InscripcionPrograma::find($id);
+        $tipo = 1;
+        return view('content.pages.personas.page-persona-boleta', ['inscripcion' => $inscripcion], ['tipo' => $tipo]);
+    }
+
+    public function showCurso($id)
+    {
+        $inscripcion = InscripcionCurso::find($id);
+        $tipo = 2;
+        return view('content.pages.personas.page-persona-boleta', ['inscripcion' => $inscripcion], ['tipo' => $tipo]);
     }
 
     /**

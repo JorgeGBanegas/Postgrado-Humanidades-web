@@ -1,4 +1,7 @@
 <div>
+
+
+
     <div class="row mb-3">
         <label class="col-sm-2 col-form-label" for="basic-default-tipo">Tipo de Inscripcion</label>
         <div class="col-sm-10">
@@ -11,7 +14,11 @@
     </div>
     <div class="card">
         <div style="align-items: center; display: inline-flex; justify-content: space-between;">
+            @if($esPrograma)
             <h5 class="card-header">Listado de Inscripciones a Programas</h5>
+            @else
+            <h5 class="card-header">Listado de Inscripciones a Cursos</h5>
+            @endif
         </div>
 
         <div class="table-responsive">
@@ -43,14 +50,18 @@
 
                         <td>
                             <div class="d-flex">
-                                <a href="{{ route('inscripciones.edit', $inscripcion-> persona -> per_id) }}" class="btn btn-warning btn-sm">Editar</a>
+
+                                <a style="margin: 2px;" href="{{ route('inscripciones.showProgram', $inscripcion->inscrip_program_nro) }}" class="btn btn-primary btn-sm">Ver</a>
+
                                 <form action="{{ route('inscripciones.destroy', $inscripcion-> persona->per_id) }}" method="POST">
                                     @csrf()
                                     @method('DELETE')
                                     <button type="submit" style="margin: 2px;" class="btn btn-danger btn-sm">Eliminar</button>
                                 </form>
                             </div>
+
                         </td>
+
                         @else
                         <td>{{ $inscripcion-> inscrip_curs_id}}</td>
                         <td>{{ $inscripcion-> inscrip_curs_fecha}}</td>
@@ -59,11 +70,12 @@
                         <td>{{ $inscripcion-> persona -> per_nom . $inscripcion-> persona -> per_appm}}</td>
                         <td>
                             <div class="d-flex">
-                                <a href="{{ route('inscripciones.edit', $inscripcion-> persona -> per_id) }}" class="btn btn-warning btn-sm">Editar</a>
+                                <a style="margin: 2px;" href="{{ route('inscripciones.showCurso', $inscripcion->inscrip_curs_id) }}" class="btn btn-primary btn-sm">Ver</a>
+
                                 <form action="{{ route('inscripciones.destroy', $inscripcion-> persona->per_id) }}" method="POST">
                                     @csrf()
                                     @method('DELETE')
-                                    <button type="submit" style="margin: 2px;" class="btn btn-danger btn-sm">Eliminar</button>
+                                    <button type="submit" style="margin: 2px;" class="btn btn-danger btn-sm">Anular</button>
                                 </form>
                             </div>
                         </td>

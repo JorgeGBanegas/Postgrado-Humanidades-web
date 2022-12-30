@@ -29,3 +29,5 @@ Route::get('/GestionarPrograma/programas', $controller_path . '\ProgramaControll
 
 Route::resource('personas', PersonaController::class);
 Route::resource('inscripciones', InscripcionController::class);
+Route::get('inscripciones/Programas/{inscripcione}', [InscripcionController::class, 'showProgram'])->name('inscripciones.showProgram');
+Route::get('inscripciones/Cursos/{inscripcione}', [InscripcionController::class, 'showCurso'])->name('inscripciones.showCurso');
