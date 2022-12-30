@@ -69,7 +69,7 @@
 
                     <td>
                         <div class="d-flex">
-                            <a href="{{ route('personas.edit', $persona->per_id) }}" class="btn btn-warning btn-sm">Editar</a>
+                            <a style="margin: 2px;" href="{{ route('personas.edit', $persona->per_id) }}" class="btn btn-warning btn-sm">Editar</a>
                             <form action="{{ route('personas.destroy', $persona->per_id) }}" method="POST">
                                 @csrf()
                                 @method('DELETE')
