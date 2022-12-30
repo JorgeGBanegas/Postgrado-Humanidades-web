@@ -81,12 +81,12 @@ class InscripcionController extends Controller
                     'grupo' => $request->input('inscripcion_grupo')
                 ]);
             } else {
-                return redirect()->back()->withErrors(['er' => 'Ya esta inscritos en este programa']);
+                return redirect()->back()->withErrors(['er' => 'Ya esta inscritos en este curso']);
             }
 
-            return $inscripcion;
+            return to_route('inscripciones.index');
         } else {
-            return redirect()->back()->withErrors(['er' => 'Ya esta inscritos en este programa']);
+            return redirect()->back()->withErrors(['er' => 'Error, intente de nuevo mas tarde...']);
         }
     }
 
