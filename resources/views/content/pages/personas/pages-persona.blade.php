@@ -83,4 +83,8 @@
         </table>
     </div>
 </div>
+
+<div class="container" style="margin-top:20px">
+    {!! $listaPersonas -> links()!!}
+</div>
 @endsection

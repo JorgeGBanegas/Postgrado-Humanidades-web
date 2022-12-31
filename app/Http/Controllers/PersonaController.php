@@ -19,7 +19,7 @@ class PersonaController extends Controller
     public function index()
     {
         $personas = Persona::join("tipo_usuario", "persona.per_tipo", "=", "tipo_usuario.tipo_us_id")
-            ->get();
+            ->paginate(5);
         //return $personas;
         return view('content.pages.personas.pages-persona', ['listaPersonas' => $personas]);
     }
