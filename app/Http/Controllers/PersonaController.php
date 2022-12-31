@@ -43,8 +43,6 @@ class PersonaController extends Controller
      */
     public function store(StorePersonaRequest $request)
     {
-
-
         $persona = Persona::create([
             'per_ci' => $request->input("per_ci"),
             'per_nom' => $request->input("per_nom"),
