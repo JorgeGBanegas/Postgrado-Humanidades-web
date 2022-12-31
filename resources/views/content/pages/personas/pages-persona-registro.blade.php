@@ -97,8 +97,6 @@ $isNavbar = false;
                         <div class="col-sm-10">
                             <select name="per_tipo" required class="form-select" id="inputGroupSelectTipo">
                                 <option value="">Selecionar...</option>
-                                @dump($listaTipos)
-
                                 @foreach($listaTipos AS $tipo)
                                 <option value="{{$tipo -> tipo_us_id}}">{{ $tipo -> tipo_us_nombre}}</option>
                                 @endforeach

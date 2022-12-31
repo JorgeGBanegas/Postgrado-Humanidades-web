@@ -41,7 +41,9 @@ class InscripcionController extends Controller
     {
 
         $alumno = Persona::where('per_ci', [$request->input('inscripcion_alumno')])->get()->all();
-        //Inscribir Programa
+        if (sizeof($alumno) == 0) {
+            return redirect()->back()->withErrors(['er' => 'NO existe el C.I.']);
+        }
         if ($request->input('tipo_inscripcion') == 1) {
 
 
