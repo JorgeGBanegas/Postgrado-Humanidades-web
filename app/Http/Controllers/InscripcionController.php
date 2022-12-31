@@ -17,10 +17,7 @@ class InscripcionController extends Controller
      */
     public function index()
     {
-        $inscrProg = InscripcionPrograma::get();
-        $inscrCurs = InscripcionCurso::get();
-        /*return $inscrProg->programa; */
-        return view('content.pages.personas.pages-persona-inscritos', ['inscritosProg' => $inscrProg], ['inscritosCurs' => $inscrCurs]);
+        return view('content.pages.personas.pages-persona-inscritos');
     }
 
     /**
@@ -147,5 +144,20 @@ class InscripcionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function destroyProgram($id)
+    {
+        $inscrProgram = InscripcionPrograma::find($id);
+        $inscrProgram->inscrip_program_estado = false;
+        $inscrProgram->save();
+        return to_route('inscripciones.index');
+    }
+    public function destroyCurso($id)
+    {
+        $inscrCurso = InscripcionCurso::find($id);
+        $inscrCurso->inscrip_curs_estado = false;
+        $inscrCurso->save();
+        return to_route('inscripciones.index');
     }
 }

@@ -15,7 +15,7 @@ class ListInscripciones extends Component
 
     public function mount()
     {
-        $this->inscritos = InscripcionPrograma::get();
+        $this->inscritos = InscripcionPrograma::select('*')->where('inscrip_program_estado', true)->get();
     }
     public function render()
     {
@@ -27,11 +27,11 @@ class ListInscripciones extends Component
         if ($id == 1) {
             $this->esPrograma = true;
             $this->reset(['inscritos']);
-            $this->inscritos = InscripcionPrograma::get();
+            $this->inscritos = InscripcionPrograma::select('*')->where('inscrip_program_estado', true)->get();
         } else {
             $this->esPrograma = false;
             $this->reset(['inscritos']);
-            $this->inscritos = InscripcionCurso::get();
+            $this->inscritos = InscripcionCurso::select('*')->where('inscrip_curs_estado', true)->get();
         }
     }
 }

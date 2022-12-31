@@ -53,10 +53,11 @@
 
                                 <a style="margin: 2px;" href="{{ route('inscripciones.showProgram', $inscripcion->inscrip_program_nro) }}" class="btn btn-primary btn-sm">Ver</a>
 
-                                <form action="{{ route('inscripciones.destroy', $inscripcion-> persona->per_id) }}" method="POST">
+                                <form action="{{ route('inscripciones.destroyProgram', $inscripcion->inscrip_program_nro) }}" method="POST">
                                     @csrf()
-                                    @method('DELETE')
-                                    <button type="submit" style="margin: 2px;" class="btn btn-danger btn-sm">Eliminar</button>
+                                    @method('PATCH')
+
+                                    <button type="submit" style="margin: 2px;" class="btn btn-danger btn-sm">Anular</button>
                                 </form>
                             </div>
 
@@ -72,9 +73,9 @@
                             <div class="d-flex">
                                 <a style="margin: 2px;" href="{{ route('inscripciones.showCurso', $inscripcion->inscrip_curs_id) }}" class="btn btn-primary btn-sm">Ver</a>
 
-                                <form action="{{ route('inscripciones.destroy', $inscripcion-> persona->per_id) }}" method="POST">
+                                <form action="{{ route('inscripciones.destroyCurso', $inscripcion->inscrip_curs_id) }}" method="POST">
                                     @csrf()
-                                    @method('DELETE')
+                                    @method('PATCH')
                                     <button type="submit" style="margin: 2px;" class="btn btn-danger btn-sm">Anular</button>
                                 </form>
                             </div>
