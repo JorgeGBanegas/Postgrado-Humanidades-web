@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\InscripcionController;
+use App\Http\Controllers\PagosController;
 use App\Http\Controllers\PersonaController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,3 +34,6 @@ Route::get('inscripciones/Programas/{inscripcione}', [InscripcionController::cla
 Route::get('inscripciones/Cursos/{inscripcione}', [InscripcionController::class, 'showCurso'])->name('inscripciones.showCurso');
 Route::patch('inscripciones/Programas/{inscripcione}', [InscripcionController::class, 'destroyProgram'])->name('inscripciones.destroyProgram');
 Route::patch('inscripciones/Cursos/{inscripcione}', [InscripcionController::class, 'destroyCurso'])->name('inscripciones.destroyCurso');
+
+
+Route::resource('pagos', PagosController::class);

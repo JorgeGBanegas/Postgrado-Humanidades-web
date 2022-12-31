@@ -39,6 +39,18 @@
           "slug": "form-layouts-horizontal"
         }
       ]
+    },
+    {
+      "name": "Gestionar Pagos",
+      "icon": "menu-icon tf-icons bx bx-detail",
+      "slug": "form-layouts",
+      "submenu": [
+        {
+          "url": "pagos",
+          "name": "Lista de pagos",
+          "slug": "form-layouts-vertical"
+        }
+      ]
     }
   ]
 }
