@@ -92,7 +92,7 @@
                     @endif
                     <td>
                         <div class="d-flex">
-                            <a style="margin: 2px;" href="" class="btn btn-success btn-sm">Ver</a>
+                            <a style="margin: 2px;" href="{{route('pagos.show', $plan->plan_pago_nro)}}" class="btn btn-success btn-sm">Ver</a>
                         </div>
                     </td>
                 </tr>

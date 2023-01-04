@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\InscripcionPrograma;
+use App\Models\Pago;
 use App\Models\PlanDePago;
 use Exception;
 use Illuminate\Http\Request;
@@ -74,7 +75,12 @@ class PagosController extends Controller
      */
     public function show($id)
     {
-        //
+        $plan = PlanDePago::find($id);
+        if ($plan) {
+
+            return view('content.pages.pagos.pagos-view', ['plan' => $plan]);
+        }
+        return redirect()->back()->withErrors(['er' => 'Ocurrio un error, El nro de pago no existe']);
     }
 
     /**
@@ -97,7 +103,14 @@ class PagosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pago = Pago::find($id);
+        if ($pago) {
+            $plan = $pago->plan_de_pago;
+            $pago->pago_estado = true;
+            $pago->save();
+            return redirect()->back();
+        }
+        return redirect()->back()->withErrors(['er' => 'Ocurrio un error, El nro de pago no existe']);
     }
 
     /**
