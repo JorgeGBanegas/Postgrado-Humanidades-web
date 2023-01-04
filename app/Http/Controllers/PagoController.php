@@ -54,9 +54,11 @@ class PagoController extends Controller
             return redirect()->back()->withErrors(['er' => 'El monto sobrepasa el precio total']);
         }
 
+
         $fechaIngresada = strtotime($request->input('pago_fecha_cobro'));
+
         foreach ($plan->pagos as $pago) {
-            $cobro = strtotime($pago->fecha_cobro);
+            $cobro = strtotime($pago->pago_fecha_cobro);
             if ($fechaIngresada < $cobro) {
                 return redirect()->back()->withErrors(['er' => 'No puede ingresar una fecha anterior a la fecha del ultimo pago']);
             }
