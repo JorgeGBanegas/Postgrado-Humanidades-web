@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePlanPagoRequest;
 use App\Models\InscripcionPrograma;
 use App\Models\Pago;
 use App\Models\PlanDePago;
@@ -101,9 +102,35 @@ class PagosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePlanPagoRequest $request, $id)
     {
         //aqui actualizar el plan de pagos
+
+        $tipo = $request->input('pago_tipo');
+
+        $plan = PlanDePago::find($id);
+        if ($plan) {
+
+            $plan->update([
+                'plan_pago_descrip' => $request->input('plan_pago_descrip'),
+                'plan_pago_pagtot' => $request->input('plan_pago_pagtot'),
+            ]);
+
+            if ($tipo == 1) {
+                $concepto = 'Pago al contado del programa ' . $plan->inscripcion_programa->program->program_nom;
+                $pago = Pago::create([
+                    'pago_concepto' => $concepto,
+                    'pago_fecha_cobro' => now(),
+                    'pago_monto' => $request->input('plan_pago_pagtot'),
+                    'pago_estado' => true,
+                    'plan_pago' => $id
+                ]);
+                $pago->pago_estado = true;
+                $pago->save();
+            }
+            return view('content.pages.pagos.pagos-view', ['plan' => $plan]);
+        }
+        return redirect()->back()->withErrors(['er' => 'Ocurrio un error, El nro de pago no existe']);
     }
 
     /**
