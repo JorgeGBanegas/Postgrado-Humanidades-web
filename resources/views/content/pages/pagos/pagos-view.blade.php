@@ -54,7 +54,7 @@ $isNavbar = false;
                                     <td>
                                         @if(!$pago->pago_estado)
                                         <div class="d-flex">
-                                            <form action="{{route('pagos.update', $pago->pago_nro)}}" method="POST">
+                                            <form action="{{route('pago.updateEstado', $pago->pago_nro)}}" method="POST">
                                                 @csrf()
                                                 @method('PATCH')
                                                 <button type="submit" style="margin: 2px;" class="btn btn-primary btn-sm">Marcar como Pagado</button>

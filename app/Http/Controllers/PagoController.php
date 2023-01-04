@@ -109,6 +109,16 @@ class PagoController extends Controller
         //
     }
 
+    public function updateEstado($id)
+    {
+        $pago = Pago::find($id);
+        if ($pago) {
+            $pago->pago_estado = true;
+            $pago->save();
+            return redirect()->back();
+        }
+        return redirect()->back()->withErrors(['er' => 'Ocurrio un error, El nro de pago no existe']);
+    }
     /**
      * Remove the specified resource from storage.
      *
