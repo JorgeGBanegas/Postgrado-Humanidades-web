@@ -111,8 +111,10 @@ class PagosController extends Controller
         $plan = PlanDePago::find($id);
         if ($plan) {
 
+            $planDescrip = $request->input('plan_pago_descrip');
+            $descripcion = ($planDescrip == null) ? "" : $planDescrip;
             $plan->update([
-                'plan_pago_descrip' => $request->input('plan_pago_descrip'),
+                'plan_pago_descrip' => $descripcion,
                 'plan_pago_pagtot' => $request->input('plan_pago_pagtot'),
             ]);
 

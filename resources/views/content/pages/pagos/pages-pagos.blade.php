@@ -84,11 +84,12 @@
                     <td>{{$plan->plan_pago_pagtot}}</td>
                     @php
                     $cantPagos = count($plan->pagos)
+
                     @endphp
-                    @if($cantPagos > 1)
-                    <td>Plan de pagos</td>
-                    @else
+                    @if($cantPagos == 1 && $plan->pagos[0]->pago_monto == $plan->plan_pago_pagtot)
                     <td>Pago al contado</td>
+                    @else
+                    <td>Plan de pagos</td>
                     @endif
                     <td>
                         <div class="d-flex">
