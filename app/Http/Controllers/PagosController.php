@@ -92,7 +92,11 @@ class PagosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $plan = PlanDePago::find($id);
+        if ($plan) {
+            return view('content.pages.pagos.pages-pagos-edit', ['plan' => $plan]);
+        }
+        return redirect()->back();
     }
 
     /**
@@ -104,7 +108,6 @@ class PagosController extends Controller
      */
     public function update(StorePlanPagoRequest $request, $id)
     {
-        //aqui actualizar el plan de pagos
 
         $tipo = $request->input('pago_tipo');
 
@@ -134,6 +137,25 @@ class PagosController extends Controller
         }
         return redirect()->back()->withErrors(['er' => 'Ocurrio un error, El nro de pago no existe']);
     }
+
+    public function updatePlan(StorePlanPagoRequest $request, $id)
+    {
+
+        $plan = PlanDePago::find($id);
+        if ($plan) {
+
+            $planDescrip = $request->input('plan_pago_descrip');
+            $descripcion = ($planDescrip == null) ? "" : $planDescrip;
+            $plan->update([
+                'plan_pago_descrip' => $descripcion,
+            ]);
+
+            return view('content.pages.pagos.pagos-view', ['plan' => $plan]);
+        }
+        return redirect()->back()->withErrors(['er' => 'Ocurrio un error, El nro de pago no existe']);
+    }
+
+
 
     /**
      * Remove the specified resource from storage.

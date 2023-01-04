@@ -40,6 +40,7 @@ Route::patch('inscripciones/Cursos/{inscripcione}', [InscripcionController::clas
 Route::resource('pagos', PagosController::class);
 Route::get('pagos/create/{planPago}', [PagosController::class, 'create'])->name('pagos.create');
 Route::get('pagos/delete/{planPago}', [PagosController::class, 'delete'])->name('pagos.delete');
+Route::patch('pagos/update/{planPago}', [PagosController::class, 'updatePlan'])->name('pagos.updatePlan');
 
 
 Route::resource('pago', PagoController::class);
