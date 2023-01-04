@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\InscripcionController;
 use App\Http\Controllers\PagosController;
+use App\Http\Controllers\PagoController;
 use App\Http\Controllers\PersonaController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,3 +38,10 @@ Route::patch('inscripciones/Cursos/{inscripcione}', [InscripcionController::clas
 
 
 Route::resource('pagos', PagosController::class);
+Route::get('pagos/create/{planPago}', [PagosController::class, 'create'])->name('pagos.create');
+Route::get('pagos/delete/{planPago}', [PagosController::class, 'delete'])->name('pagos.delete');
+
+
+Route::resource('pago', PagoController::class);
+Route::post('pago/{planPago}', [PagoController::class, 'store'])->name('pago.store');
+Route::get('pago/create/{planPago}', [PagoController::class, 'create'])->name('pago.create');

@@ -10,12 +10,54 @@
 
 
 <!-- Basic Bootstrap Table -->
-<a style="margin-bottom: 25px;" href="personas/create" class="btn btn-primary">Registrar</a>
+<button style="margin-bottom: 25px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+    Registrar
+</button>
+
+@if($errors->any())
+@include('layouts.errors')
+@endif
+
+
+<!-- Modal -->
+<div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="{{ route('pagos.store') }}" method="POST">
+                @csrf()
+                @method('POST')
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel1">Registrar Pago</h5>
+                    <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col">
+                        <label for="DataListEstudiantes" class="form-label">Buscar Estudiantes Registrados</label>
+                        <input name="inscripcion_alumno" required class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                        <datalist id="datalistOptions">
+                            @foreach($inscripciones as $inscripcion)
+                            <option value="{{ $inscripcion->inscrip_program_nro}}"> {{ $inscripcion->persona->per_nom}} {{ $inscripcion->persona->per_appm}} - {{$inscripcion->program->program_nom}}
+                                @endforeach
+                        </datalist>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-outline-primary">Registrar</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
 
 <!--- Listado--->
 <div class="card">
     <div style="align-items: center; display: inline-flex; justify-content: space-between;">
-        <h5 class="card-header">Listado de Personas Registradas </h5>
+        <h5 class="card-header">Listado de Pagos</h5>
     </div>
 
     <div class="table-responsive">
@@ -50,12 +92,7 @@
                     @endif
                     <td>
                         <div class="d-flex">
-                            <a style="margin: 2px;" href="" class="btn btn-warning btn-sm">Editar</a>
-                            <form action="" method="POST">
-                                @csrf()
-                                @method('DELETE')
-                                <button type="submit" style="margin: 2px;" class="btn btn-danger btn-sm">Eliminar</button>
-                            </form>
+                            <a style="margin: 2px;" href="" class="btn btn-success btn-sm">Ver</a>
                         </div>
                     </td>
                 </tr>
@@ -67,6 +104,6 @@
 </div>
 
 <div class="container" style="margin-top:20px">
-    Aqui la paginacion
+    {!! $PlanesDePago -> links()!!}
 </div>
 @endsection

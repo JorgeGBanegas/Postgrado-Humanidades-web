@@ -35,15 +35,12 @@ class Pago extends Model
 		'plan_pago' => 'int'
 	];
 
-	protected $dates = [
-		'pago_fecha_cobro'
-	];
+	protected $dates = [];
 
 	protected $fillable = [
 		'pago_concepto',
 		'pago_fecha_cobro',
 		'pago_monto',
-		'pago_estado',
 		'plan_pago'
 	];
 
