@@ -5,7 +5,7 @@
                 <h5 class="card-header">Listado de Pagos</h5>
             </div>
             <div>
-                <a href="{{route('pago.create', $plan)}}" style="margin-top: 20px;" type="button" class="btn btn-sm btn-primary">Añadir</a>
+                <a href="{{route('pago.create', [$plan, 2])}}" style="margin-top: 20px;" type="button" class="btn btn-sm btn-primary">Añadir</a>
             </div>
         </div>
 

@@ -45,5 +45,8 @@ Route::patch('pagos/update/{planPago}', [PagosController::class, 'updatePlan'])-
 
 Route::resource('pago', PagoController::class);
 Route::post('pago/{planPago}', [PagoController::class, 'store'])->name('pago.store');
-Route::get('pago/create/{planPago}', [PagoController::class, 'create'])->name('pago.create');
+Route::get('pago/create/{planPago}/{tipo}', [PagoController::class, 'create'])->name('pago.create');
 Route::patch('pago/pagar/{pago}', [PagoController::class, 'updateEstado'])->name('pago.updateEstado');
+
+
+Route::post('pago/udpate/{planPago}', [PagoController::class, 'updatePago'])->name('pago.updatePago');

@@ -24,10 +24,10 @@ class PagoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($planPago)
+    public function create($planPago, $tipo)
     {
         //return redirect()->action([PagosController::class, 'create'], ['planPago' => $planPago]);
-        return view('content.pages.pagos.pages-add-pago', ['plan' => $planPago]);
+        return view('content.pages.pagos.pages-add-pago', ['plan' => $planPago], ['tipo' => $tipo]);
     }
 
     /**
@@ -37,6 +37,13 @@ class PagoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StorePagoRequest $request, $planPago)
+    {
+
+        $this->almacenarPago($request, $planPago);
+        return redirect()->action([PagosController::class, 'create'], ['planPago' => $planPago]);
+    }
+
+    private function almacenarPago($request, $planPago)
     {
         $plan = PlanDePago::find($planPago);
         if (sizeof($plan->all()) == 0) {
@@ -59,7 +66,7 @@ class PagoController extends Controller
 
         foreach ($plan->pagos as $pago) {
             $cobro = strtotime($pago->pago_fecha_cobro);
-            if ($fechaIngresada < $cobro) {
+            if ($fechaIngresada <= $cobro) {
                 return redirect()->back()->withErrors(['er' => 'No puede ingresar una fecha anterior a la fecha del ultimo pago']);
             }
         }
@@ -72,9 +79,6 @@ class PagoController extends Controller
             'pago_monto' => $request->input('pago_monto'),
             'plan_pago' => $planPago
         ]);
-
-        //return redirect()->back();
-        return redirect()->action([PagosController::class, 'create'], ['planPago' => $planPago]);
     }
 
     /**
@@ -106,9 +110,10 @@ class PagoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updatePago(StorePagoRequest $request, $planPago)
     {
-        //
+        $this->almacenarPago($request, $planPago);
+        return redirect()->action([PagosController::class, 'edit'], ['pago' => $planPago]);
     }
 
     public function updateEstado($id)
