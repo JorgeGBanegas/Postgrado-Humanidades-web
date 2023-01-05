@@ -45,13 +45,10 @@ $isNavbar = false;
                     </div>
 
                     <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="basic-default-name">Total</label>
+                        <label class="col-sm-2 col-form-label" for="basic-default-name">Total a pagar</label>
                         <div class="col-sm-10">
-                            @if($cantPagos == 1 && $plan->pagos[0]->pago_monto == $plan->plan_pago_pagtot)
-                            <input name="plan_pago_pagtot" required disabled value="{{ $plan->inscripcion_programa->program->program_precio }}" type="number" min="0" class="form-control" id="basic-default-name" placeholder="Total a pagar" />
-                            @else
-                            <input name="plan_pago_pagtot" required value="{{ $plan->inscripcion_programa->program->program_precio }}" type="number" min="0" class="form-control" id="basic-default-name" placeholder="Total a pagar" />
-                            @endif
+                            <input name="plan_pago_pagtot" required value="{{ $plan->plan_pago_pagtot }}" type="number" min="0" class="form-control" id="basic-default-name" placeholder="Total a pagar" />
+
                             @error('plan_pago_pagtot')
                             <small style="color: red;">{{ $message }}</small>
                             @enderror

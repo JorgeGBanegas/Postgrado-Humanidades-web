@@ -19,6 +19,7 @@ $isNavbar = false;
                 <h6 class="mb-2">Alumno: {{ $plan->inscripcion_programa->persona->per_nom }} {{ $plan->inscripcion_programa->persona->per_appm }}</h6>
                 <h6 class="mb-2">Programa: {{ $plan->inscripcion_programa->program->program_nom }}</h6>
                 <h6 class="mb-2">Precio del Programa: {{ $plan->inscripcion_programa->program->program_precio }} Bs.</h6>
+                <h6 class="mb-2">Total a pagar: {{ $plan->plan_pago_pagtot }} Bs.</h6>
 
                 @if(sizeof($plan->pagos) == 1 && $plan->pagos[0]->pago_monto == $plan->plan_pago_pagtot)
 

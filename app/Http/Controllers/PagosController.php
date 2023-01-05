@@ -148,6 +148,8 @@ class PagosController extends Controller
             $descripcion = ($planDescrip == null) ? "" : $planDescrip;
             $plan->update([
                 'plan_pago_descrip' => $descripcion,
+                'plan_pago_pagtot' => $request->input('plan_pago_pagtot'),
+
             ]);
 
             return view('content.pages.pagos.pagos-view', ['plan' => $plan]);
