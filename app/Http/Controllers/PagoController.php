@@ -50,7 +50,7 @@ class PagoController extends Controller
             return redirect()->back()->withErrors(['er' => 'Error... El plan de pago no existe']);
         }
 
-        $totalAPagar = $plan->inscripcion_programa->program->program_precio;
+        $totalAPagar = $plan->plan_pago_pagtot;
         foreach ($plan->pagos as $pago) {
             $monto = $pago->pago_monto;
             $totalAPagar -= $monto;
