@@ -10,6 +10,9 @@ $isNavbar = false;
 
 
 
+@if($errors->any())
+@include('layouts.errors')
+@endif
 
 <!-- Basic Layout & Basic with Icons -->
 <div class="row">
