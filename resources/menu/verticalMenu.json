@@ -51,6 +51,23 @@
           "slug": "form-layouts-vertical"
         }
       ]
+    },
+    {
+      "name": "Gestionar Certificados",
+      "icon": "menu-icon tf-icons bx bx-detail",
+      "slug": "form-layouts",
+      "submenu": [
+        {
+          "url": "certificados-programa",
+          "name": "Programas",
+          "slug": "form-layouts-vertical"
+        },
+        {
+          "url": "certificados-curso",
+          "name": "Cursos",
+          "slug": "form-layouts-vertical"
+        }
+      ]
     }
   ]
 }

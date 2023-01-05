@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CertificadoProgramaController;
 use App\Http\Controllers\InscripcionController;
 use App\Http\Controllers\PagosController;
 use App\Http\Controllers\PagoController;
@@ -50,3 +51,6 @@ Route::patch('pago/pagar/{pago}', [PagoController::class, 'updateEstado'])->name
 
 
 Route::post('pago/udpate/{planPago}', [PagoController::class, 'updatePago'])->name('pago.updatePago');
+
+
+Route::resource('certificados-programa', CertificadoProgramaController::class);
