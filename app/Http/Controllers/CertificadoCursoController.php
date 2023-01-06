@@ -39,8 +39,12 @@ class CertificadoCursoController extends Controller
     {
         date_default_timezone_set("America/La_Paz");
         setlocale(LC_TIME, 'es_BO.UTF-8', 'esp');
+
         $id = $request->input('inscrip_curs_id');
         $descrip =  $request->input('cert_curs_descrip');
+        if (!$descrip) {
+            return redirect()->back()->withErrors(['er' => 'La descripcion es obligatoria']);
+        }
         $inscripcion = InscripcionCurso::find($id);
         $fecha = $request->input('cert_curs_fecha');
         if ($inscripcion) {
