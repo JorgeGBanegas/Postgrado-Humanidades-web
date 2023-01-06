@@ -41,7 +41,7 @@
                                 <a style="margin: 2px;" href="{{ route('certificados-programa.show', $certificado -> cert_program_id) }}" class="btn btn-primary btn-sm">Ver</a>
                                 <a style="margin: 2px;" href="{{ route('certificados-programa.edit', $certificado -> cert_program_id) }}" class="btn btn-warning btn-sm">Editar</a>
 
-                                <form action="" method="POST">
+                                <form action="{{route('certificados-programa.destroy', $certificado -> cert_program_id)}}" method="POST">
                                     @csrf()
                                     @method('DELETE')
                                     <button type="submit" style="margin: 2px;" class="btn btn-danger btn-sm">Eliminar</button>
