@@ -13,7 +13,7 @@
                 <div class="modal-body">
                     <div class="col">
                         <label for="DataListEstudiantes" class="form-label">Buscar Estudiantes Registrados</label>
-                        <input name="inscrip_curs_nro" required class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                        <input name="inscrip_curs_id" required class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
                         <datalist id="datalistOptions">
                             @foreach($inscripciones as $inscripcion)
                             <option value="{{ $inscripcion->inscrip_curs_id}}"> {{ $inscripcion->persona->per_ci . " - " .$inscripcion->persona->per_nom . " " . $inscripcion->persona->per_appm . " - " . $inscripcion->curs->curs_nom}}
