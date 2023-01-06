@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\CertificadoPrograma;
+use App\Models\InscripcionPrograma;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -19,12 +20,15 @@ class CertificadosProgramas extends Component
     }
     public function render()
     {
+
+        $inscripciones = InscripcionPrograma::get();
         $certificados = CertificadoPrograma::join('persona', 'certificado_programa.estudiante', '=', 'persona.per_id')
             ->where('persona.per_nom', 'ilike', '%' . $this->search . '%')
             ->orwhere('persona.per_appm', 'ilike', '%' . $this->search . '%')
             ->paginate(5);
         return view('livewire.certificados-programas', [
-            'certificados' => $certificados
+            'certificados' => $certificados,
+            'inscripciones' => $inscripciones
         ]);
     }
 }

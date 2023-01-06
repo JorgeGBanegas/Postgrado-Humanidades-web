@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CertificadoPrograma;
+use App\Models\InscripcionPrograma;
 use Illuminate\Http\Request;
 
 class CertificadoProgramaController extends Controller
@@ -35,7 +36,29 @@ class CertificadoProgramaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id = $request->input('inscrip_program_nro');
+        $descrip =  $request->input('cert_program_descrip');
+        $inscripcion = InscripcionPrograma::find($id);
+        $fecha = $request->input('cert_program_fecha');
+        if ($inscripcion) {
+            $existeCertificado = CertificadoPrograma::where([
+                ['estudiante', '=', $inscripcion->persona->per_id],
+                ['programa', '=', $inscripcion->program->program_id]
+            ])->get();
+
+            if (sizeof($existeCertificado) > 0) {
+                return redirect()->back()->withErrors(['err' => 'El estudiante ya tiene un certificado de este curso']);
+            }
+            $certificado = CertificadoPrograma::create([
+                'cert_program_descrip' => $descrip,
+                'cert_program_fecha' => $fecha,
+                'estudiante' => $inscripcion->persona->per_id,
+                'programa' => $inscripcion->program->program_id
+            ]);
+
+            return view('content.pages.certificados.pages-certificados-view', ['certificado' => $certificado]);
+        }
+        return back();
     }
 
     /**

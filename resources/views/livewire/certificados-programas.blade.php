@@ -1,8 +1,15 @@
 <div>
 
     @include('layouts.sections.navbar.nav-search')
+    @include('content.pages.certificados.modal-certificado')
+    @if($errors->any())
+    @include('layouts.errors')
+    @endif
+
     <!-- Basic Bootstrap Table -->
-    <a style="margin-bottom: 25px;" href="" class="btn btn-primary">Registrar</a>
+    <button style="margin-bottom: 25px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+        Registrar
+    </button>
 
     <!--- Listado--->
     <div class="card">
