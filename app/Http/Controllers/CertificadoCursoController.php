@@ -88,7 +88,11 @@ class CertificadoCursoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $certificado = CertificadoCurso::find($id);
+        if ($certificado) {
+            return view('content.pages.certificados.pages-certificado-curso-edit', ['certificado' => $certificado]);
+        }
+        return redirect()->back()->withErrors(['er' => 'El certificado no existe']);
     }
 
     /**
@@ -100,7 +104,19 @@ class CertificadoCursoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        if (!$request->input('cert_curs_descrip')) {
+            return redirect()->back()->withErrors(['er' => 'La descripcion es obligatoria']);
+        }
+        $certificado = CertificadoCurso::find($id);
+        if ($certificado) {
+            $certificado->update([
+                'cert_curs_descrip' => $request->input('cert_curs_descrip'),
+                'cert_curs_fecha' => $request->input('cert_curs_fecha')
+            ]);
+            return redirect()->action([CertificadoCursoController::class, 'index']);
+        }
+        return redirect()->back()->withErrors(['er' => 'El certificado no existe']);
     }
 
     /**
