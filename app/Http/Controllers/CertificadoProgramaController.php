@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CertificadoPrograma;
 use Illuminate\Http\Request;
 
 class CertificadoProgramaController extends Controller
@@ -45,7 +46,13 @@ class CertificadoProgramaController extends Controller
      */
     public function show($id)
     {
-        //
+        date_default_timezone_set("America/La_Paz");
+        setlocale(LC_TIME, 'es_BO.UTF-8', 'esp');
+        $certificado = CertificadoPrograma::find($id);
+        if ($certificado) {
+            return view('content.pages.certificados.pages-certificados-view', ['certificado' => $certificado]);
+        }
+        return redirect()->back()->withErrors(['er' => 'No existe el id del certificado']);
     }
 
     /**

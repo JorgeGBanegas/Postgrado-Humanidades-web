@@ -5,6 +5,7 @@ use App\Http\Controllers\InscripcionController;
 use App\Http\Controllers\PagosController;
 use App\Http\Controllers\PagoController;
 use App\Http\Controllers\PersonaController;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,7 @@ $controller_path = 'App\Http\Controllers';
 
 // Main Page Route
 //Route::get('/', $controller_path . '\dashboard\Analytics@index')->name('dashboard-analytics');
+App::setLocale("es");
 
 // layout
 Route::get('/', $controller_path . '\layouts\Container@index')->name('layouts-container');

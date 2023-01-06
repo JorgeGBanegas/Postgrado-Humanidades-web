@@ -30,7 +30,7 @@
 
                         <td>
                             <div class="d-flex">
-                                <a style="margin: 2px;" href="" class="btn btn-primary btn-sm">Ver</a>
+                                <a style="margin: 2px;" href="{{ route('certificados-programa.show', $certificado -> cert_program_id) }}" class="btn btn-primary btn-sm">Ver</a>
                                 <a style="margin: 2px;" href="" class="btn btn-warning btn-sm">Editar</a>
                                 <form action="" method="POST">
                                     @csrf()
