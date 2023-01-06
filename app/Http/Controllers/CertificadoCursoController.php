@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CertificadoCurso;
 use App\Models\InscripcionCurso;
+use Exception;
 use Illuminate\Http\Request;
 
 class CertificadoCursoController extends Controller
@@ -127,6 +128,12 @@ class CertificadoCursoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $certificado = CertificadoCurso::find($id);
+            $certificado->delete();
+            return to_route('certificados-curso.index');
+        } catch (Exception $e) {
+            return redirect()->back()->withErrors(['er' => 'Error al eliminar']);
+        }
     }
 }
