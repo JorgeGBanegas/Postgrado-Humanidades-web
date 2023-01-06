@@ -2,6 +2,7 @@
 
     @include('layouts.sections.navbar.nav-search')
     @include('content.pages.certificados.modal-certificado')
+
     @if($errors->any())
     @include('layouts.errors')
     @endif
@@ -38,7 +39,8 @@
                         <td>
                             <div class="d-flex">
                                 <a style="margin: 2px;" href="{{ route('certificados-programa.show', $certificado -> cert_program_id) }}" class="btn btn-primary btn-sm">Ver</a>
-                                <a style="margin: 2px;" href="" class="btn btn-warning btn-sm">Editar</a>
+                                <a style="margin: 2px;" href="{{ route('certificados-programa.edit', $certificado -> cert_program_id) }}" class="btn btn-warning btn-sm">Editar</a>
+
                                 <form action="" method="POST">
                                     @csrf()
                                     @method('DELETE')

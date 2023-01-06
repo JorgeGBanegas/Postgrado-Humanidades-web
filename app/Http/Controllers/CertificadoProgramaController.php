@@ -86,7 +86,11 @@ class CertificadoProgramaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $certificado = CertificadoPrograma::find($id);
+        if ($certificado) {
+            return view('content.pages.certificados.pages-certificado-edit', ['certificado' => $certificado]);
+        }
+        return redirect()->back()->withErrors(['er' => 'El certificado no existe']);
     }
 
     /**
@@ -98,7 +102,15 @@ class CertificadoProgramaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $certificado = CertificadoPrograma::find($id);
+        if ($certificado) {
+            $certificado->update([
+                'cert_program_descrip' => $request->input('cert_program_descrip'),
+                'cert_program_fecha' => $request->input('cert_program_fecha')
+            ]);
+            return redirect()->action([CertificadoProgramaController::class, 'index']);
+        }
+        return redirect()->back()->withErrors(['er' => 'El certificado no existe']);
     }
 
     /**
