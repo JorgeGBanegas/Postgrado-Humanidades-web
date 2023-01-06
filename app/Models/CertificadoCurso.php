@@ -49,7 +49,7 @@ class CertificadoCurso extends Model
 		return $this->belongsTo(Persona::class, 'estudiante');
 	}
 
-	public function curso()
+	public function curs()
 	{
 		return $this->belongsTo(Curso::class, 'curso');
 	}

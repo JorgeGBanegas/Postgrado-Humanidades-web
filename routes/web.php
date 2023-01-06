@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CertificadoCursoController;
 use App\Http\Controllers\CertificadoProgramaController;
 use App\Http\Controllers\InscripcionController;
 use App\Http\Controllers\PagosController;
@@ -56,3 +57,4 @@ Route::post('pago/udpate/{planPago}', [PagoController::class, 'updatePago'])->na
 
 
 Route::resource('certificados-programa', CertificadoProgramaController::class);
+Route::resource('certificados-curso', CertificadoCursoController::class);
