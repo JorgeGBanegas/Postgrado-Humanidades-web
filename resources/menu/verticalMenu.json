@@ -68,6 +68,24 @@
           "slug": "form-layouts-vertical"
         }
       ]
+    },
+    {
+      "name": "Estadisticas",
+      "icon": "menu-icon tf-icons bx bx-detail",
+      "slug": "form-layouts",
+      "submenu": [
+        {
+          "url": "estadisticas/programas",
+          "name": "Programas",
+          "slug": "form-layouts-vertical"
+        },
+        {
+          "url": "estadisticas/cursos",
+          "name": "Cursos",
+          "slug": "form-layouts-vertical"
+        }
+      ]
     }
+
   ]
 }

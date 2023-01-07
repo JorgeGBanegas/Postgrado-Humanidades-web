@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CertificadoCursoController;
 use App\Http\Controllers\CertificadoProgramaController;
+use App\Http\Controllers\EstadisticasControler;
 use App\Http\Controllers\InscripcionController;
 use App\Http\Controllers\PagosController;
 use App\Http\Controllers\PagoController;
@@ -58,3 +59,6 @@ Route::post('pago/udpate/{planPago}', [PagoController::class, 'updatePago'])->na
 
 Route::resource('certificados-programa', CertificadoProgramaController::class);
 Route::resource('certificados-curso', CertificadoCursoController::class);
+
+Route::get('estadisticas/programas', [EstadisticasControler::class, 'programas'])->name('estadistica.programas');
+Route::get('estadisticas/cursos', [EstadisticasControler::class, 'cursos'])->name('estadistica.cursos');
