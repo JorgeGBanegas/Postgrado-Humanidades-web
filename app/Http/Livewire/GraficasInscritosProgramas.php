@@ -69,7 +69,6 @@ class GraficasInscritosProgramas extends Component
         $pieChartModel1 = (new PieChartModel())
             ->setTitle('Inscritos por Modalidad')
             ->setAnimated($this->firstRun)
-            ->setType('donut')
             ->withDataLabels();
 
         for ($i = 0; $i < sizeof($this->cantidadesPorModalidad); $i++) {
@@ -94,7 +93,6 @@ class GraficasInscritosProgramas extends Component
         $pieChartModel2 = (new PieChartModel())
             ->setTitle('Inscritos por Tipo de Programa')
             ->setAnimated($this->firstRun)
-            ->setType('donut')
             ->withDataLabels();
 
         for ($i = 0; $i < sizeof($this->cantidadesPorTipoPrograma); $i++) {
@@ -126,7 +124,6 @@ class GraficasInscritosProgramas extends Component
         $pieChartModel3 = (new PieChartModel())
             ->setTitle('Inscritos por Programa')
             ->setAnimated($this->firstRun)
-            ->setType('donut')
             ->withDataLabels();
 
         for ($i = 0; $i < sizeof($this->cantidadesPorPrograma); $i++) {

@@ -64,7 +64,6 @@ class GraficasInscritosCursos extends Component
         $pieChartModel1 = (new PieChartModel())
             ->setTitle('Inscritos por Modalidad')
             ->setAnimated($this->firstRun)
-            ->setType('donut')
             ->withDataLabels();
 
         for ($i = 0; $i < sizeof($this->cantidadesPorModalidad); $i++) {
@@ -96,7 +95,6 @@ class GraficasInscritosCursos extends Component
         $pieChartModel3 = (new PieChartModel())
             ->setTitle('Inscritos por Curso')
             ->setAnimated($this->firstRun)
-            ->setType('donut')
             ->withDataLabels();
 
         for ($i = 0; $i < sizeof($this->cantidadesPorCurso); $i++) {
