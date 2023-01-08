@@ -90,48 +90,6 @@
         font-weight: normal;
     }
 
-    .card {
-        position: relative;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        min-width: 0;
-        word-wrap: break-word;
-        background-color: #fff;
-        background-clip: border-box;
-        border: 1px solid rgba(0, 0, 0, 0.125);
-        border-radius: 0;
-    }
-
-    .card-body {
-        -webkit-box-flex: 1;
-        -webkit-flex: 1 1 auto;
-        -ms-flex: 1 1 auto;
-        flex: 1 1 auto;
-        padding: 1.25rem;
-    }
-
-    .card-header {
-        padding: 0.75rem 1.25rem;
-        margin-bottom: 0;
-        background-color: rgba(0, 0, 0, 0.03);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-        text-align: center;
-    }
-
-    .dashboard {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        min-height: 100vh;
-    }
 
     .dashboard-app {
         display: -webkit-box;
