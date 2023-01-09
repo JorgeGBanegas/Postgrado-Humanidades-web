@@ -1,11 +1,8 @@
-@php
-$isNavbar = false;
-@endphp
-@extends('layouts/contentNavbarLayout')
+@extends('layouts.sections.menu.burguerMenu')
 
-@section('title', ' Registro - Forms')
+@section('title', 'Ver Certificado')
 
-@section('content')
+@section('content-body')
 
 <div class="container d-flex" style="
         width: 800px;

@@ -496,15 +496,14 @@
             </div>
             <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-money-bill-wave"></i> Pagos </a>
                 <div class='dashboard-nav-dropdown-menu'>
-                    <a href="#" class="dashboard-nav-dropdown-item">Programas</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">Cursos</a>
+                    <a href="{{route('pagos.index')}}" class="dashboard-nav-dropdown-item">Programas</a>
                 </div>
             </div>
 
             <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-certificate"></i> Certificados </a>
                 <div class='dashboard-nav-dropdown-menu'>
-                    <a href="#" class="dashboard-nav-dropdown-item">Programas</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">Cursos</a>
+                    <a href="{{route('certificados-programa.index')}}" class="dashboard-nav-dropdown-item">Programas</a>
+                    <a href="{{route('certificados-curso.index')}}" class="dashboard-nav-dropdown-item">Cursos</a>
                 </div>
             </div>
 

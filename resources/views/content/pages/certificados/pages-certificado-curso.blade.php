@@ -1,11 +1,8 @@
-@php
-$isNavbar = false;
-@endphp
-@extends('layouts/contentNavbarLayout')
+@extends('layouts.sections.menu.burguerMenu')
 
-@section('title', ' Certificados')
+@section('title', 'Certificados Cursos')
 
-@section('content')
+@section('content-body')
 
 <div>
     @livewire('certificados-cursos')
