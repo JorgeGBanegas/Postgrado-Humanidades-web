@@ -20,9 +20,7 @@ class PagosController extends Controller
      */
     public function index()
     {
-        $inscripciones = InscripcionPrograma::where('inscrip_program_estado', true)->get();
-        $plan = PlanDePago::where('plan_pago_pagtot', '>', 0)->paginate(5);
-        return view('content.pages.pagos.pages-pagos', ['PlanesDePago' => $plan], ['inscripciones' => $inscripciones]);
+        return view('content.pages.pagos.pages-pagos');
     }
 
     /**

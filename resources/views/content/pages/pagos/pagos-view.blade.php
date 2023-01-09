@@ -1,11 +1,8 @@
-@php
-$isNavbar = false;
-@endphp
-@extends('layouts/contentNavbarLayout')
+@extends('layouts.sections.menu.burguerMenu')
 
-@section('title', ' Registro - Forms')
+@section('title', 'Ver Pago')
 
-@section('content')
+@section('content-body')
 <h4 class="mb-0">Pago</h4> <small class="text-muted float-end"></small>
 <br>
 <div class="row">

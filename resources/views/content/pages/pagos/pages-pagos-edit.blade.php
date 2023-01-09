@@ -1,11 +1,9 @@
-@php
-$isNavbar = false;
-@endphp
-@extends('layouts/contentNavbarLayout')
+@extends('layouts.sections.menu.burguerMenu')
 
-@section('title', ' Registro - Forms')
+@section('title', 'Editar Pago')
 
-@section('content')
+@section('content-body')
+
 <h4 class="fw-bold py-3 mb-4">Registrar Pago</h4>
 
 
