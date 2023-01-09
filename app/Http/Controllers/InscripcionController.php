@@ -49,9 +49,9 @@ class InscripcionController extends Controller
             ['estudiante', '=',  $alumno[0]->per_id],
             ['programa', '=', $request->input('inscripcion_programa')],
             ['grupo', '=', $request->input('inscripcion_grupo')]
-        ])->get();
+        ])->orderBy('inscrip_program_nro', 'desc')->get();;
 
-        if (sizeof($inscripcion) == 0) {
+        if (sizeof($inscripcion) == 0 || $inscripcion[0]->inscrip_program_estado == false) {
             InscripcionPrograma::create([
                 'inscrip_program_fecha' => now(),
                 'estudiante' => $alumno[0]->per_id,
