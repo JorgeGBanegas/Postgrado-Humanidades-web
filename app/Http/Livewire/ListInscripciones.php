@@ -5,33 +5,31 @@ namespace App\Http\Livewire;
 use App\Models\InscripcionCurso;
 use App\Models\InscripcionPrograma;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ListInscripciones extends Component
 {
-    public $selected;
-    public $esPrograma = true;
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
 
-    public $inscritos = [];
+    public $search = '';
 
-    public function mount()
+    public function updatingSearch()
     {
-        $this->inscritos = InscripcionPrograma::select('*')->where('inscrip_program_estado', true)->get();
+        $this->resetPage();
     }
     public function render()
     {
-        return view('livewire.list-inscripciones');
-    }
 
-    public function updatedselected($id)
-    {
-        if ($id == 1) {
-            $this->esPrograma = true;
-            $this->reset(['inscritos']);
-            $this->inscritos = InscripcionPrograma::select('*')->where('inscrip_program_estado', true)->get();
-        } else {
-            $this->esPrograma = false;
-            $this->reset(['inscritos']);
-            $this->inscritos = InscripcionCurso::select('*')->where('inscrip_curs_estado', true)->get();
-        }
+        $inscritos = InscripcionPrograma::join('persona', 'per_id', 'inscripcion_programa.estudiante')
+            ->where(function ($q) {
+                $q->where('persona.per_appm', 'ilike', '%' . $this->search . '%')
+                    ->orwhere('persona.per_nom', 'ilike', '%' . $this->search . '%')
+                    ->orwhere('persona.per_ci', 'ilike', '%' . $this->search . '%');
+            })->where('inscrip_program_estado', '=', 'true')->paginate(5);
+
+        return view('livewire.list-inscripciones', [
+            'inscritos' => $inscritos
+        ]);
     }
 }

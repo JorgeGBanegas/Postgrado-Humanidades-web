@@ -29,7 +29,6 @@
 @endif
 
 <!-- Basic Bootstrap Table -->
-<a style="margin-bottom: 25px;" href="{{ route('inscripciones.create')}}" class="btn btn-primary">Inscribir</a>
 
 <!--- Listado--->
 @livewire('list-inscripciones')

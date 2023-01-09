@@ -44,60 +44,25 @@ class InscripcionController extends Controller
         if (sizeof($alumno) == 0) {
             return redirect()->back()->withErrors(['er' => 'NO existe el C.I.']);
         }
-        if ($request->input('tipo_inscripcion') == 1) {
 
+        $inscripcion =  InscripcionPrograma::where([
+            ['estudiante', '=',  $alumno[0]->per_id],
+            ['programa', '=', $request->input('inscripcion_programa')],
+            ['grupo', '=', $request->input('inscripcion_grupo')]
+        ])->get();
 
-            $inscripcion =  InscripcionPrograma::where([
-                ['estudiante', '=',  $alumno[0]->per_id],
-                ['programa', '=', $request->input('inscripcion_programa')],
-                ['grupo', '=', $request->input('inscripcion_grupo')]
-            ])->get();
-
-            if (sizeof($inscripcion) == 0) {
-                InscripcionPrograma::create([
-                    'inscrip_program_fecha' => now(),
-                    'estudiante' => $alumno[0]->per_id,
-                    'programa' => $request->input('inscripcion_programa'),
-                    'grupo' => $request->input('inscripcion_grupo')
-                ]);
-            } else {
-                return redirect()->back()->withErrors(['er' => 'Ya esta inscritos en este programa']);
-            }
-
-            return to_route('inscripciones.index');
-        } else if ($request->input('tipo_inscripcion') == 2) {
-            $inscripcion =  InscripcionCurso::where([
-                ['estudiante', '=',  $alumno[0]->per_id],
-                ['curso', '=', $request->input('inscripcion_curso')],
-                ['grupo', '=', $request->input('inscripcion_grupo')]
-            ])->get();
-
-            if ((sizeof($inscripcion) == 0)) {
-                InscripcionCurso::create([
-                    'inscrip_curs_fecha' => now(),
-                    'estudiante' => $alumno[0]->per_id,
-                    'curso' => $request->input('inscripcion_curso'),
-                    'grupo' => $request->input('inscripcion_grupo')
-                ]);
-            } else {
-                return redirect()->back()->withErrors(['er' => 'Ya esta inscritos en este curso']);
-            }
-
-            return to_route('inscripciones.index');
+        if (sizeof($inscripcion) == 0) {
+            InscripcionPrograma::create([
+                'inscrip_program_fecha' => now(),
+                'estudiante' => $alumno[0]->per_id,
+                'programa' => $request->input('inscripcion_programa'),
+                'grupo' => $request->input('inscripcion_grupo')
+            ]);
         } else {
-            return redirect()->back()->withErrors(['er' => 'Error, intente de nuevo mas tarde...']);
+            return redirect()->back()->withErrors(['er' => 'Ya esta inscritos en este programa']);
         }
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($inscripcion)
-    {
-        //return view('content.pages.personas.page-persona-boleta');
+        return to_route('inscripciones.index');
     }
 
     public function showProgram($id)
@@ -107,59 +72,12 @@ class InscripcionController extends Controller
         return view('content.pages.personas.page-persona-boleta', ['inscripcion' => $inscripcion], ['tipo' => $tipo]);
     }
 
-    public function showCurso($id)
-    {
-        $inscripcion = InscripcionCurso::find($id);
-        $tipo = 2;
-        return view('content.pages.personas.page-persona-boleta', ['inscripcion' => $inscripcion], ['tipo' => $tipo]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 
     public function destroyProgram($id)
     {
         $inscrProgram = InscripcionPrograma::find($id);
         $inscrProgram->inscrip_program_estado = false;
         $inscrProgram->save();
-        return to_route('inscripciones.index');
-    }
-    public function destroyCurso($id)
-    {
-        $inscrCurso = InscripcionCurso::find($id);
-        $inscrCurso->inscrip_curs_estado = false;
-        $inscrCurso->save();
         return to_route('inscripciones.index');
     }
 }

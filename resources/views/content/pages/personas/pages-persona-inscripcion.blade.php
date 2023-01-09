@@ -55,9 +55,9 @@
                     </div>
                     @livewire('select-anidado')
 
-                    <div class="d-flex">
-                        <button style="margin: 3px;" type="submit" class="btn btn-primary">Inscribir</button>
-                        <a style="margin: 3px;" class="btn btn-danger" href="{{url()->previous()}}">Cancelar</a>
+                    <div class="container d-flex">
+                        <button style="margin-top: 10px; margin-bottom: 10px;" type="submit" class="btn btn-primary">Inscribir</button>
+                        <a style="margin-top: 10px; margin-bottom: 10px; margin-left: 5px;" class="btn btn-danger" href="{{route('inscripciones.index')}}">Cancelar</a>
                     </div>
                 </form>
             </div>

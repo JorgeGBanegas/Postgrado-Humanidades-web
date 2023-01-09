@@ -484,7 +484,7 @@
             <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-user-graduate"></i> Registros </a>
                 <div class='dashboard-nav-dropdown-menu'>
                     <a href="{{route('personas.index')}}" class="dashboard-nav-dropdown-item">Alumno/Docente</a>
-                    <a href="{{route('inscripciones.index')}}" class="dashboard-nav-dropdown-item">Inscripcion</a>
+                    <a href="{{route('inscripciones.index')}}" class="dashboard-nav-dropdown-item">Inscribir a Programa</a>
                 </div>
             </div>
 
