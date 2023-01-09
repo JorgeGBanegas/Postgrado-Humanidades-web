@@ -479,14 +479,7 @@
 
         <nav class="dashboard-nav-list">
 
-            <a href="#" class="dashboard-nav-item"><i class="fas fa-home"></i>Home </a>
-
-            <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-chart-pie"></i> Estadisticas </a>
-                <div class='dashboard-nav-dropdown-menu'>
-                    <a href="#" class="dashboard-nav-dropdown-item">Programas</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">Cursos</a>
-                </div>
-            </div>
+            <a href="/" class="dashboard-nav-item"><i class="fas fa-home"></i>Home </a>
 
             <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-user-graduate"></i> Registros </a>
                 <div class='dashboard-nav-dropdown-menu'>
@@ -494,6 +487,7 @@
                     <a href="{{route('inscripciones.index')}}" class="dashboard-nav-dropdown-item">Inscripcion</a>
                 </div>
             </div>
+
             <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-money-bill-wave"></i> Pagos </a>
                 <div class='dashboard-nav-dropdown-menu'>
                     <a href="{{route('pagos.index')}}" class="dashboard-nav-dropdown-item">Programas</a>
@@ -504,6 +498,13 @@
                 <div class='dashboard-nav-dropdown-menu'>
                     <a href="{{route('certificados-programa.index')}}" class="dashboard-nav-dropdown-item">Programas</a>
                     <a href="{{route('certificados-curso.index')}}" class="dashboard-nav-dropdown-item">Cursos</a>
+                </div>
+            </div>
+
+            <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fa fa-pie-chart"></i> Estadisticas </a>
+                <div class='dashboard-nav-dropdown-menu'>
+                    <a href="{{route('estadistica.programas')}}" class="dashboard-nav-dropdown-item">Programas</a>
+                    <a href="{{route('estadistica.cursos')}}" class="dashboard-nav-dropdown-item">Cursos</a>
                 </div>
             </div>
 

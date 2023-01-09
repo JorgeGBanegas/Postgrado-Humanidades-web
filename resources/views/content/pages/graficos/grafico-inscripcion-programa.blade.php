@@ -1,18 +1,7 @@
-@php
-$isNavbar = false;
-@endphp
-@extends('layouts/contentNavbarLayout')
+@extends('layouts.sections.menu.burguerMenu')
 
-@section('title', ' Registro - Forms')
 
-@section('vendor-script')
-<script src="//unpkg.com/alpinejs" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-@livewireChartsScripts
-
-@endsection
-
-@section('content')
+@section('content-body')
 
 @livewire('graficas-inscritos-programas')
 
