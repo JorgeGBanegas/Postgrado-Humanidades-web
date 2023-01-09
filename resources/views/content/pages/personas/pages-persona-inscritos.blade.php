@@ -1,11 +1,13 @@
-@extends('layouts/contentNavbarLayout')
+@extends('layouts.sections.menu.burguerMenu')
 
-@section('title', 'Registros')
+@section('title', 'Inscritos')
 @section('page-script')
 <script src="{{asset('assets/js/ui-modals.js')}}"></script>
 @endsection
 
-@section('content')
+@section('content-body')
+
+
 
 
 @if($errors->any())

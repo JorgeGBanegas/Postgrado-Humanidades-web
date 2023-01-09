@@ -21,6 +21,7 @@
         line-height: 1.15;
         -webkit-text-size-adjust: 100%;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        height: 100%;
     }
 
     nav {
@@ -38,6 +39,14 @@
         color: #515151;
         text-align: left;
         background-color: #e9edf4;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    footer {
+        margin-top: auto;
+        position: relative;
     }
 
     h1,
@@ -114,6 +123,7 @@
         -ms-flex-positive: 2;
         flex-grow: 2;
         padding: 25px;
+        height: 100%;
     }
 
     .dashboard-nav {
@@ -451,7 +461,9 @@
 
 
 @section('layoutContent')
-<div class='dashboard'>
+<div class='dashboard' style="display: flex;
+        flex-direction: column;
+        min-height: 100vh;">
     <div class="dashboard-nav">
         <header>
             <a href="{{url('/')}}" class="app-brand-link">
@@ -478,8 +490,8 @@
 
             <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-user-graduate"></i> Registros </a>
                 <div class='dashboard-nav-dropdown-menu'>
-                    <a href="#" class="dashboard-nav-dropdown-item">Alumno/Docente</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">Inscripcion</a>
+                    <a href="{{route('personas.index')}}" class="dashboard-nav-dropdown-item">Alumno/Docente</a>
+                    <a href="{{route('inscripciones.index')}}" class="dashboard-nav-dropdown-item">Inscripcion</a>
                 </div>
             </div>
             <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-money-bill-wave"></i> Pagos </a>
@@ -501,11 +513,12 @@
     <div class='dashboard-app'>
         <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a></header>
         <div class='dashboard-content'>
-            <div class='container' style="margin-bottom: 20px;">
+            <div class='container' style="margin-bottom: 40px;">
                 @yield('content-body')
             </div>
-            @include('layouts/sections/footer/footer')
         </div>
+        @include('layouts/sections/footer/footer')
+
     </div>
 </div>
 @endsection

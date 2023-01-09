@@ -1,11 +1,10 @@
-@php
-$isNavbar = false;
-@endphp
-@extends('layouts/contentNavbarLayout')
+@extends('layouts.sections.menu.burguerMenu')
 
-@section('title', ' Registro - Forms')
+@section('title', 'Actualizar Personas')
 
-@section('content')
+@section('content-body')
+
+
 <h4 class="fw-bold py-3 mb-4">Actualizar datos</h4>
 
 <!-- Basic Layout & Basic with Icons -->
@@ -105,13 +104,14 @@ $isNavbar = false;
                         </div>
                     </div>
 
-                    <div class="row justify-content-end">
-                        <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
+
+                    <div class="d-flex">
+                        <button style="margin: 3px;" type="submit" class="btn btn-primary">Actualizar</button>
+                        <a style="margin: 3px;" class="btn btn-danger" href="{{route('personas.index')}}">Cancelar</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    @endsection
+</div>
+@endsection

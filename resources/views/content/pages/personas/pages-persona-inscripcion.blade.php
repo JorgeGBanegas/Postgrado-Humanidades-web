@@ -1,11 +1,8 @@
-@php
-$isNavbar = false;
-@endphp
-@extends('layouts/contentNavbarLayout')
+@extends('layouts.sections.menu.burguerMenu')
 
-@section('title', ' Registro - Forms')
+@section('title', 'Incribir Alumno')
 
-@section('content')
+@section('content-body')
 
 
 @if($errors->any())
@@ -67,4 +64,5 @@ $isNavbar = false;
             </div>
         </div>
     </div>
-    @endsection
+</div>
+@endsection

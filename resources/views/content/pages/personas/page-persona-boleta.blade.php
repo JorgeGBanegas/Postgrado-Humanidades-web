@@ -1,11 +1,9 @@
-@php
-$isNavbar = false;
-@endphp
-@extends('layouts/contentNavbarLayout')
+@extends('layouts.sections.menu.burguerMenu')
 
-@section('title', ' Registro - Forms')
+@section('title', 'Boleta de Inscripcion')
 
-@section('content')
+@section('content-body')
+
 
 <div class="card">
 
