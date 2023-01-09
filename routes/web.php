@@ -4,6 +4,7 @@ use App\Http\Controllers\CertificadoCursoController;
 use App\Http\Controllers\CertificadoProgramaController;
 use App\Http\Controllers\EstadisticasControler;
 use App\Http\Controllers\InscripcionController;
+use App\Http\Controllers\InscripcionCursoController;
 use App\Http\Controllers\PagosController;
 use App\Http\Controllers\PagoController;
 use App\Http\Controllers\PersonaController;
@@ -37,9 +38,7 @@ Route::get('/GestionarPrograma/programas', $controller_path . '\ProgramaControll
 Route::resource('personas', PersonaController::class);
 Route::resource('inscripciones', InscripcionController::class);
 Route::get('inscripciones/Programas/{inscripcione}', [InscripcionController::class, 'showProgram'])->name('inscripciones.showProgram');
-Route::get('inscripciones/Cursos/{inscripcione}', [InscripcionController::class, 'showCurso'])->name('inscripciones.showCurso');
 Route::patch('inscripciones/Programas/{inscripcione}', [InscripcionController::class, 'destroyProgram'])->name('inscripciones.destroyProgram');
-Route::patch('inscripciones/Cursos/{inscripcione}', [InscripcionController::class, 'destroyCurso'])->name('inscripciones.destroyCurso');
 
 
 Route::resource('pagos', PagosController::class);
@@ -62,3 +61,6 @@ Route::resource('certificados-curso', CertificadoCursoController::class);
 
 Route::get('estadisticas/programas', [EstadisticasControler::class, 'programas'])->name('estadistica.programas');
 Route::get('estadisticas/cursos', [EstadisticasControler::class, 'cursos'])->name('estadistica.cursos');
+
+
+Route::resource('inscripcion-curso', InscripcionCursoController::class);

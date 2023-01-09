@@ -485,6 +485,8 @@
                 <div class='dashboard-nav-dropdown-menu'>
                     <a href="{{route('personas.index')}}" class="dashboard-nav-dropdown-item">Alumno/Docente</a>
                     <a href="{{route('inscripciones.index')}}" class="dashboard-nav-dropdown-item">Inscribir a Programa</a>
+                    <a href="{{route('inscripcion-curso.index')}}" class="dashboard-nav-dropdown-item">Inscribir a Curso</a>
+
                 </div>
             </div>
 
