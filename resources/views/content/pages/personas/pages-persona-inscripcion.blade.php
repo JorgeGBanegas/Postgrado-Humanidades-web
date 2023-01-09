@@ -55,10 +55,9 @@
                     </div>
                     @livewire('select-anidado')
 
-                    <div class="container">
-                        <div>
-                            <button type="submit" class="btn btn-primary">Inscribir</button>
-                        </div>
+                    <div class="d-flex">
+                        <button style="margin: 3px;" type="submit" class="btn btn-primary">Inscribir</button>
+                        <a style="margin: 3px;" class="btn btn-danger" href="{{url()->previous()}}">Cancelar</a>
                     </div>
                 </form>
             </div>
