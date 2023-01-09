@@ -1,9 +1,9 @@
 @extends('layouts.sections.menu.burguerMenu')
 
-@section('title', ' Registro - Forms')
+@section('title', 'Estadisticas Cursos')
 
 @section('content-body')
 
-@livewire('graficas-inscritos-programas')
+@livewire('graficas-inscritos-cursos')
 
 @endsection

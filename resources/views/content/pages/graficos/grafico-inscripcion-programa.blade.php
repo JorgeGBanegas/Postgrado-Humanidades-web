@@ -1,5 +1,6 @@
 @extends('layouts.sections.menu.burguerMenu')
 
+@section('title', 'Estadisticas Programas')
 
 @section('content-body')
 
